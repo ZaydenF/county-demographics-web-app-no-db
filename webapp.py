@@ -19,7 +19,7 @@ def render_fact():
     county = county_most_under_18(state)
     county2 = percent_under_5_years(state)
     fact = "In " + state + ", the county with the highest percentage of under 18 year olds is " + county + "."
-    fact2 = "In " + state + ", the county with the highest percentage of under 5 year olds is " + county + "."
+    fact2 = "In " + state + ", the county with the highest percentage of under 5 year olds is " + county2 + "."
     return render_template('home.html', state_options=states, funFact=fact, funFact2=fact2)
     
 def get_state_options():
@@ -58,7 +58,7 @@ def percent_under_5_years(state):
         if c["State"] == state:
             if c["Age"]["Percent Under 5 Years"] > highest:
                 highest = c["Age"]["Percent Under 5 Years"]
-                county = c["State"]
+                county = c["County"]
     return county
 
 def is_localhost():
